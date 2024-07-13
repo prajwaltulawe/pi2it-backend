@@ -2,11 +2,6 @@ const express = require("express");
 const User = require("../models/User");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const fetch = require('node-fetch');
-
-require('dotenv').config();
-const {OAuth2Client} = require("google-auth-library")
-const bodyParser = require('body-parser');
 
 const bycrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -14,10 +9,6 @@ const JWT_SECRET = "qwert";
 
 const fetchUser = require("../middleware/fetchUser");
 let success = false;
-
-async function getUserData(access_token) {
-
-}
 
 router.post("/getOAuthUserData", async function (req, res) {
   const access_token = req.body.access_token;
